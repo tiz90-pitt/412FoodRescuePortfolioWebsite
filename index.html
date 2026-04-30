@@ -1,198 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio — 412 Food Rescue</title>
-    <style>
-        /* Base Styles */
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #27ae60; /* A green accent fitting for a food/eco nonprofit */
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-            --card-bg: #ffffff;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — 412 Food Rescue Digital Campaign</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #000000;       /* Black */
+      --rice: #FFFFFF;      /* White */
+      --terra: #4CAF50;     /* Green */
+      --jade: #808080;      /* Gray */
+      --gold: #FFD700;      /* Yellow */
+      --muted: #808080;     /* Gray */
+      --white: #FFFFFF;     /* White */
+    }
 
-        /* Header / Hero Section */
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-        }
+    html { scroll-behavior: smooth; }
 
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            font-weight: 300;
-            opacity: 0.9;
-        }
+    body {
+      background: var(--ink);
+      color: var(--rice);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
 
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    /* ── HEADER ── */
+    .top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(76,175,80,0.3); /* Green accent */
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--terra);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
 
-        /* Project Overview */
-        .project-overview {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-        }
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .project-overview h2 {
-            color: var(--accent-color);
-            margin-top: 0;
-        }
+    .hero::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--terra);
+    }
 
-        /* Portfolio Grid */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
 
-        /* Cards */
-        .card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 4px solid var(--accent-color);
-        }
+    .hero-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--terra);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      color: var(--rice);
+      margin-bottom: 1.5rem;
+    }
 
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
 
-        .file-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    .hero-sub {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
 
-        .file-list li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-        }
+    .hero-cta {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: var(--terra);
+      color: var(--white);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
 
-        .file-list li::before {
-            content: "📄";
-            margin-right: 10px;
-            font-size: 1.1rem;
-        }
+    .hero-cta:hover { background: #388E3C; } /* Darker Green */
 
-        .file-list li.video::before { content: "🎥"; }
-        .file-list li.audio::before { content: "🎧"; }
-        .file-list li.image::before { content: "🖼️"; }
+    .hero-org {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-top: 2rem;
+    }
 
-        .file-list a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
 
-        .file-list a:hover {
-            color: var(--accent-color);
-        }
+    .hero-stat {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.2rem;
+    }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            margin-top: 40px;
-        }
-    </style>
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--rice);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    /* ── CAMPAIGN INTRO ── */
+    .intro { background: var(--rice); color: var(--ink); }
+    .intro .section-title { color: var(--ink); }
+    .intro .section-label { color: var(--terra); }
+    .intro .section-divider { background: var(--terra); }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .intro-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #333333; /* Dark Gray / Blackish */
+    }
+
+    .intro-body p + p { margin-top: 1rem; }
+
+    .intro-aside {
+      background: var(--ink);
+      padding: 2rem;
+      color: var(--rice);
+    }
+
+    .aside-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--rice);
+      margin-bottom: 1rem;
+    }
+
+    .aside-attr {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    /* ── DELIVERABLES GRID ── */
+    .deliverables { background: var(--ink); }
+
+    .del-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(255,215,0,0.1); /* Yellow */
+      border: 1px solid rgba(255,215,0,0.1); /* Yellow */
+    }
+
+    .del-card {
+      background: #1a1a1a; /* Dark Gray */
+      padding: 2rem 1.8rem;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .del-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--terra);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.25s ease;
+    }
+
+    .del-card:hover { background: #222222; } /* Grayish Black */
+    .del-card:hover::before { transform: scaleY(1); }
+
+    .del-num {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .del-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--rice);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .del-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .del-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terra);
+      border: 1px solid rgba(76,175,80,0.3); /* Green */
+      padding: 0.2rem 0.5rem;
+    }
+
+    /* ── ABOUT PCCC / ORGANIZATION ── */
+    .about { background: #111111; } /* Off-Black / Dark Gray */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-body {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .about-body p + p { margin-top: 1rem; }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .stat-box {
+      padding: 1.5rem;
+      border: 1px solid rgba(255,215,0,0.15); /* Yellow */
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,215,0,0.15); /* Yellow */
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-org {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--rice);
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner,
+      .intro-grid,
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .del-grid { grid-template-columns: 1fr 1fr; }
+      .hero-right { flex-direction: row; flex-wrap: wrap; }
+    }
+
+    @media (max-width: 480px) {
+      .del-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Tiffany Zheng</h1>
-        <p>Digital Storytelling Campaign: 412 Food Rescue</p>
-    </header>
+  <nav class="top-bar">
+    ENGCMP 0610 · Campaign Portfolio
+  </nav>
 
-    <div class="container">
-        
-        <section class="project-overview">
-            <h2>About The Project</h2>
-            <p><strong>ENGCMP610</strong></p>
-            <p>This campaign shifts the perception of food rescue away from a purely logistical equation of "pounds and miles" and redefines it as a "living network" of human connection. By framing every individual food rescue as a "heartbeat," the campaign illustrates how these actions sustain the overall health of the Pittsburgh community.</p>
-            <p>The core conflict addresses a severe "logistics gap": 40% of food is wasted, yet one in seven residents faces daily hunger. Through strategic storytelling, visual design, and multimedia outreach, this portfolio piece aims to evolve the volunteer base from "transactional" app-based activism into a unified Advocate Network.</p>
-        </section>
-
-        <section class="portfolio-grid">
-            
-            <div class="card">
-                <h3>Strategy & Research</h3>
-                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">The foundational documents, rhetorical analysis, and master planning that guide the campaign's narrative.</p>
-                <ul class="file-list">
-                    <li><a href="Master Story Plan.docx" target="_blank">Master Story Plan</a></li>
-                    <li><a href="Project Proposal & Audience Analysis.pdf" target="_blank">Project Proposal & Audience Analysis</a></li>
-                    <li><a href="Visual Audit.pdf" target="_blank">Visual Audit</a></li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Video & Audio Assets</h3>
-                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Documentary-style storytelling and long-form audio discussions exploring systemic change.</p>
-                <ul class="file-list">
-                    <li class="video"><a href="Pitch Presentation.mp4" target="_blank">Pitch Presentation</a></li>
-                    <li class="video"><a href="Tiffany Zheng Video Essay.mpg" target="_blank">Video Essay</a></li>
-                    <li class="audio"><a href="Audio Soundscape.mp3" target="_blank">Audio Soundscape</a></li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Visual Design & Social</h3>
-                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Targeted visual assets designed to combat "outreach fatigue" across different digital platforms.</p>
-                <ul class="file-list">
-                    <li class="image"><a href="412 Food Rescue Impact Infographic.jpg" target="_blank">Impact Infographic</a></li>
-                    <li class="image"><a href="LinkedIn Ad Post (LinkedIn Post).jpg" target="_blank">LinkedIn Ad Post</a></li>
-                    <li class="image"><a href="Facebook Event Post (Facebook Post).jpg" target="_blank">Facebook Event Post</a></li>
-                    <li class="image"><a href="Instagram.jpg" target="_blank">Instagram Campaign Post</a></li>
-                </ul>
-            </div>
-
-        </section>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="hero-label">Portfolio · 412 Food Rescue</p>
+        <h1 class="hero-title">412 Food Rescue.<br><em>From "pounds and miles" to a living network of connection.</em></h1>
+        <p class="hero-sub">A multimedia campaign shifting the perception of food rescue and bridging the logistics gap in Pittsburgh.</p>
+        <a href="#deliverables" class="hero-cta">Explore the Campaign</a>
+        <p class="hero-org">Tiffany Zheng · 2026</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-stat">
+          <div class="hero-stat-num">40%</div>
+          <div class="hero-stat-label">Of food is wasted</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">1 in 7</div>
+          <div class="hero-stat-label">Pittsburghers face daily hunger</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2016</div>
+          <div class="hero-stat-label">Year the Food Rescue Hero app launched</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">25+</div>
+          <div class="hero-stat-label">Cities across North America using the network</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <footer>
-        <p>&copy; Tiffany Zheng · ENGCMP 0610 · University of Pittsburgh · 2026</p>
-    </footer>
+  <section class="intro">
+    <div class="section-inner fade-in">
+      <p class="section-label">About This Campaign</p>
+      <h2 class="section-title">Addressing the "logistics gap" with a heartbeat.</h2>
+      <div class="section-divider"></div>
+      <div class="intro-grid">
+        <div class="intro-body">
+          <p>This campaign shifts the perception of food rescue away from a purely logistical equation of "pounds and miles" and redefines it as a "living network" of human connection. By framing every individual food rescue as a "heartbeat," the campaign illustrates how these actions sustain the overall health of the Pittsburgh community.</p>
+          <p>The core conflict addresses a severe "logistics gap": 40% of food is wasted, yet one in seven residents faces daily hunger. This crisis is exacerbated by the 2026 economic climate, where surging grocery prices have drastically increased the demand for food access among vulnerable and homebound populations.</p>
+          <p>Our goal is to evolve the volunteer base from "transactional" app-based activism into a unified Advocate Network that fights for systemic, long-term policy changes and combats "outreach fatigue."</p>
+        </div>
+        <div class="intro-aside">
+          <p class="aside-quote">"Evolving the volunteer base from transactional app-based activism into a unified Advocate Network."</p>
+          <p class="aside-attr">Campaign Objective</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="deliverables" id="deliverables">
+    <div class="section-inner">
+      <p class="section-label fade-in">Campaign Deliverables</p>
+      <h2 class="section-title fade-in">Ten components. One story.</h2>
+      <div class="section-divider fade-in"></div>
+
+      <div class="del-grid">
+
+        <a href="Master Story Plan.docx" target="_blank" class="del-card fade-in">
+          <div class="del-num">01 · STRATEGY</div>
+          <div class="del-title">Master Story Plan</div>
+          <div class="del-desc">Comprehensive documentation of the campaign's core narrative architecture and audience journey mapping.</div>
+          <span class="del-tag">DOCX</span>
+        </a>
+
+        <a href="Project Proposal & Audience Analysis.pdf" target="_blank" class="del-card fade-in">
+          <div class="del-num">02 · RESEARCH</div>
+          <div class="del-title">Project Proposal & Analysis</div>
+          <div class="del-desc">Research-based proposal identifying 412 Food Rescue's target audience personas and rhetorical situation.</div>
+          <span class="del-tag">PDF</span>
+        </a>
+
+        <a href="Visual Audit.pdf" target="_blank" class="del-card fade-in">
+          <div class="del-num">03 · DESIGN</div>
+          <div class="del-title">Visual Audit</div>
+          <div class="del-desc">An assessment of current branding and proposed visual directions to combat non-profit "outreach fatigue."</div>
+          <span class="del-tag">PDF</span>
+        </a>
+
+        <a href="Pitch Presentation.mp4" target="_blank" class="del-card fade-in">
+          <div class="del-num">04 · VIDEO PITCH</div>
+          <div class="del-title">Pitch Presentation</div>
+          <div class="del-desc">A complete video presentation proposing the multimedia campaign strategy to stakeholders.</div>
+          <span class="del-tag">MP4</span>
+        </a>
+
+        <a href="Tiffany Zheng Video Essay.mpg" target="_blank" class="del-card fade-in">
+          <div class="del-num">05 · MULTIMEDIA</div>
+          <div class="del-title">Video Essay</div>
+          <div class="del-desc">Documentary-style storytelling illustrating the "heartbeat" of the community through direct action.</div>
+          <span class="del-tag">MPG</span>
+        </a>
+
+        <a href="Audio Soundscape.mp3" target="_blank" class="del-card fade-in">
+          <div class="del-num">06 · AUDIO</div>
+          <div class="del-title">Audio Soundscape</div>
+          <div class="del-desc">Long-form discussion exploring the Policy-Practice gap and the organization's technological evolution.</div>
+          <span class="del-tag">MP3</span>
+        </a>
+
+        <a href="412 Food Rescue Impact Infographic.jpg" target="_blank" class="del-card fade-in">
+          <div class="del-num">07 · INFOGRAPHIC</div>
+          <div class="del-title">Impact Infographic</div>
+          <div class="del-desc">A highly visual data representation demonstrating the scale of food waste vs. hunger in the local community.</div>
+          <span class="del-tag">JPG</span>
+        </a>
+
+        <a href="LinkedIn Ad Post (LinkedIn Post).jpg" target="_blank" class="del-card fade-in">
+          <div class="del-num">08 · SOCIAL MEDIA</div>
+          <div class="del-title">LinkedIn Ad Post</div>
+          <div class="del-desc">Professional networking outreach targeted at potential corporate sponsors and long-term advocates.</div>
+          <span class="del-tag">JPG</span>
+        </a>
+
+        <a href="Facebook Event Post (Facebook Post).jpg" target="_blank" class="del-card fade-in">
+          <div class="del-num">09 · SOCIAL MEDIA</div>
+          <div class="del-title">Facebook Event Post</div>
+          <div class="del-desc">Community-focused event promotion designed to activate local volunteers into immediate action.</div>
+          <span class="del-tag">JPG</span>
+        </a>
+
+        <a href="Instagram.jpg" target="_blank" class="del-card fade-in" style="grid-column: span 1;">
+          <div class="del-num">10 · SOCIAL MEDIA</div>
+          <div class="del-title">Instagram Campaign</div>
+          <div class="del-desc">High-impact visual storytelling crafted for rapid consumption, targeting the "micro-volunteer" persona.</div>
+          <span class="del-tag">JPG</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="section-inner fade-in">
+      <p class="section-label">Organization Background</p>
+      <h2 class="section-title">Bridging the gap since 2015.</h2>
+      <div class="section-divider"></div>
+      <div class="about-grid">
+        <div class="about-body">
+          <p>412 Food Rescue is a non-profit organization dedicated to preventing food waste and hunger while promoting environmental sustainability. It was established in response to the "logistics gap" in Pittsburgh's food ecosystem.</p>
+          <p>The organization's mission is to quickly rescue surplus fresh food and deliver it to those in need. They achieve this by leveraging technology and fostering strong community partnerships to combat food insecurity and climate change.</p>
+          <p>Since launching their innovative Food Rescue Hero app in 2016, operations have transformed, scaling their impact across North America.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-num">2015</div>
+            <div class="stat-label">Organization Founded in Pittsburgh</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">40%</div>
+            <div class="stat-label">Of national food supply goes to waste</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">1:7</div>
+            <div class="stat-label">Ratio of local residents facing hunger</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">Tech</div>
+            <div class="stat-label">Driven by the Food Rescue Hero app</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <div class="footer-org">Digital Storytelling Campaign: 412 Food Rescue</div>
+        <div class="footer-sub">Tiffany Zheng · ENGCMP 0610 · 2026</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
