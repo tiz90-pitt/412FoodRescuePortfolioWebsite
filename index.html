@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Creative Portfolio</title>
+    <style>
+        /* Basic Styling and Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Section */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Upload Form Section */
+        .upload-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .upload-section h2 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        /* The form needs enctype="multipart/form-data" to handle files */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        input[type="file"] {
+            padding: 10px;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 400px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Portfolio Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .portfolio-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .portfolio-item video, .portfolio-item img {
+            width: 100%;
+            display: block;
+        }
+        .item-details {
+            padding: 1rem;
+        }
+        .item-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Creative Portfolio</h1>
+        <p>A collection of my latest videos and files</p>
+    </header>
+
+    <div class="container">
+        
+        <section class="upload-section">
+            <h2>Upload New Content</h2>
+            <p style="margin-bottom: 1rem; color: #666;">Select a video or file to add to your portfolio.</p>
+            
+            <form action="/upload-endpoint" method="POST" enctype="multipart/form-data">
+                <input type="file" name="portfolioFile" accept="video/mp4, video/x-m4v, video/*, image/*, .pdf">
+                <button type="submit">Upload File</button>
+            </form>
+        </section>
+
+        <section>
+            <h2 style="margin-bottom: 1.5rem; border-bottom: 2px solid #ecf0f1; padding-bottom: 0.5rem;">My Work</h2>
+            
+            <div class="gallery">
+                <div class="portfolio-item">
+                    <video controls>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                    <div class="item-details">
+                        <h3>Sample Project Video</h3>
+                        <p>A brief description of the video project goes here.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div style="background-color: #ecf0f1; height: 200px; display: flex; align-items: center; justify-content: center; color: #7f8c8d;">
+                        [Document or Image Thumbnail]
+                    </div>
+                    <div class="item-details">
+                        <h3>Design Document</h3>
+                        <p>A brief description of the file goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
